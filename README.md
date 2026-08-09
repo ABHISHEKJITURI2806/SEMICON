@@ -49,7 +49,6 @@ During training, `SemiconRestorationNet` takes degraded images from `train/Noisy
 ├── evaluation_script.py      # Main Standalone Evaluation Script (Directory & Single File Input)
 ├── train.py                  # Full Training & Validation Pipeline
 ├── web_app.py                # Interactive Web Visualizer Studio (Single & Batch Upload)
-├── generate_presentation.py  # Script to generate PPTX/PDF presentation slides
 ├── requirements.txt          # Environment Dependencies
 ├── README.md                 # Complete Solution Documentation
 ├── models/
