@@ -7,7 +7,7 @@
 
 ---
 
-## 📌 1. Background & Executive Summary
+## 📌  Background & Executive Summary
 
 In semiconductor manufacturing, microscopic inspection images are critical for measuring and verifying chip quality across lithography, etching, and wafer fabrication stages. Microscopic defects at sub-nanometer scales can degrade chip yield and lead to catastrophic semiconductor failure. 
 
@@ -20,19 +20,8 @@ This repository provides an end-to-end AI solution centered around **`SemiconRes
 
 ---
 
-## ❓ 2. Data Sources & Ground Truth Reference
 
-### Where Do Ground Truth Images Come From?
-The Ground Truth reference images are **provided directly by KLA** in the official competition training dataset (`train.zip`):
-* **`train/GT/`**: Contains **3,200 clean, full-resolution ($256 \times 256$) ground truth images** in `.npy` format. These are the high signal-to-noise reference target images.
-* **`train/NoisyLR/`**: Contains **3,200 paired degraded ($128 \times 128$) low-resolution noisy images** in `.npy` format.
-* **`dataset/NoisyLR/`** (from `Test_NoisyLR.zip`): Contains **400 degraded test set images** used for final benchmarking.
-
-During training, `SemiconRestorationNet` takes degraded images from `train/NoisyLR/` as input, predicts a restored $256 \times 256$ output image, and calculates loss against the paired target reference image from `train/GT/`.
-
----
-
-## 🔬 3. Key Technical Innovations
+## 🔬 Key Technical Innovations
 
 * **Non-Linear Activation Free (NAF) Architecture**: Replaces standard ReLU/GELU activations with `SimpleGate` elementwise channel gating ($X_1 \odot X_2$), preserving fine semiconductor line-space features without clipping micro-intensity details.
 * **PixelShuffle 2x Super-Resolution Head**: Reconstructs high-frequency $256 \times 256$ spatial features from $128 \times 128$ inputs without checkerboard artifacts.
@@ -43,7 +32,7 @@ During training, `SemiconRestorationNet` takes degraded images from `train/Noisy
 
 ---
 
-## 📁 4. Repository Structure
+## 📁  Repository Structure
 
 ```
 ├── evaluation_script.py      # Main Standalone Evaluation Script (Directory & Single File Input)
@@ -65,7 +54,7 @@ During training, `SemiconRestorationNet` takes degraded images from `train/Noisy
 
 ---
 
-## ⚙️ 5. Quick Start & Setup
+## ⚙️ Quick Start & Setup
 
 ### Prerequisites
 * Python 3.9+
@@ -80,7 +69,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 6. Inference Execution (Single Image & Batch Options)
+## 🚀 Inference Execution (Single Image & Batch Options)
 
 The standalone evaluation script `evaluation_script.py` loads the pre-trained model weights (`weights/best_model.pth`) and supports **both single file restoration and full directory batch processing**.
 
@@ -104,7 +93,7 @@ python evaluation_script.py --input_file dataset/NoisyLR/000000.npy --output_dir
 
 ---
 
-## 🌐 7. Interactive Studio Web App (Live Visualizer)
+## 🌐  Interactive Studio Web App (Live Visualizer)
 
 To run the interactive web dashboard for real-time single image upload and side-by-side visualization:
 
@@ -118,7 +107,7 @@ Open **`http://127.0.0.1:8050`** in any web browser to:
 
 ---
 
-## 🏋️ 8. Model Training & Reproduction
+## 🏋️  Model Training & Reproduction
 
 To reproduce the model training from scratch:
 
@@ -134,7 +123,7 @@ python train.py
 
 ---
 
-## 📊 9. Model Performance & Benchmarks
+## 📊 Model Performance & Benchmarks
 
 | Metric | Degraded Input (Bicubic) | **SemiconRestorationNet (Ours)** | Improvement Net Gain |
 | :--- | :---: | :---: | :---: |
