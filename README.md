@@ -147,7 +147,3 @@ python train.py
 
 ---
 
-## 📜 10. Submission & Compliance
-
-* **Component 1**: PPT/PDF Presentation (`VisionForge_KLA_PS01.pdf`) adhering to KLA Idea Submission Template.
-* **Component 2**: Self-contained GitHub repository with pre-trained weights (`weights/best_model.pth`), restored outputs (`restored_test_outputs/`), and standalone execution script (`evaluation_script.py`).
